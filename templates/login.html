@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<form action="{{ url_for('view_1.login') }}" method="post">
+    <span>username:</span><input type="text" name="user" placeholder="please write your name">
+    <br><input id ="submit" type="submit" onclick="javascript:click()">
+</form>
+</body>
+<script type="text/javascript">
+
+	$("#submit").click(function(){
+		$.ajax({
+			url:"/login",
+			type:"post",
+			success:function(){
+			    if(status ==='True'){
+			        alert("succsee");
+                }else {
+			        alert("no")
+                }
+
+			}
+		})
+	});
+</script>
+</html>

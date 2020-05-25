@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>user_info</title>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script src="../static/layui/layui.js"></script>
+<link rel="stylesheet" href="../static/layui/css/layui.css">
+</head>
+<body>
+    <button class="layui-btn layui-btn-sm" 
+    lay-filter="test1"
+    lay-dropdown="{menus: [{layIcon:'layui-icon-username',txt: '个人中心', event:'usercenter'}, {layIcon: 'layui-icon-set',txt: '设置', event:'set'}, {layIcon: 'layui-icon-logout', txt: '退出登录', event:'loginout'}]}">
+<span>下拉菜单</span>
+<i class="layui-icon layui-icon-triangle-d"></i>
+</button>
+<button
+ class="layui-btn layui-btn-sm"
+ lay-dropdown="{template: '#custMenu'}"
+>
+    <span>自定义下拉内容</span>
+    <i class="layui-icon layui-icon-triangle-d"></i>
+</button>
+<!-- 下拉内容自定义模板 -->
+<script id="custMenu" type="text/html">
+    <div>
+        <p>我是自定义下拉内容</p>
+    </div>
+</script>
+
+<script>
+ layui.config({
+          base:'../static/layui/ext/dropdown/'
+        }).use(['dropdown']),function(){
+          var dropdown =layui.dropdown;
+          dropdown.onFilter('test1',function(){
+              Console.log(2)
+          })
+
+        }
+      layui.use('element', function(){
+        var element = layui.element;
+     
+      });
+</script>
+    
+</body>
+</html>
