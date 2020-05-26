@@ -8,7 +8,6 @@ app = Flask(__name__)
 def index():
     return render_template('ajaxIndex.html')
 
-
 @app.route('/ajax', methods=['POST'])
 def ajax_post():
     name=request.values['name']
@@ -17,7 +16,6 @@ def ajax_post():
         return "True"
     else:
         return "False"
-
 @app.route('/user_info',methods=['GET'])
 def user_info():
     return render_template('someinfo.html')
